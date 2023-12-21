@@ -1,0 +1,12 @@
+# Libraries
+Libraries/0Harmony.dll
+Libraries/Assembly-CSharp.dll
+Libraries/BepInEx.dll
+Libraries/Unity.Netcode.Runtime.dll
+Libraries/UnityEngine.CoreModule.dll
+Libraries/UnityEngine.dll
+
+# Build
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
