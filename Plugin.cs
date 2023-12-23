@@ -71,6 +71,7 @@ public class Plugin : BaseUnityPlugin {
                     HUDManager.Instance.AddTextToChatOnServer("<color=white>The Company thanks your service with equipment.</color>");
                 }
                 for (int i = 0; i < StartOfRound.Instance.livingPlayers; i++) {
+                    supplyIDList.Clear();
                     foreach (string supply in supplyList) {
                         supplyIDList.Add(int.Parse(supply.Trim()));
                     }
@@ -96,6 +97,7 @@ public class Plugin : BaseUnityPlugin {
                     HUDManager.Instance.AddTextToChatOnServer("<color=white>The Company thanks your service with equipment.</color>");
                 }
                 for (int i = 0; i < StartOfRound.Instance.livingPlayers; i++) {
+                    supplyIDList.Clear();
                     foreach (string supply in supplyList) {
                         supplyIDList.Add(int.Parse(supply.Trim()));
                     }
