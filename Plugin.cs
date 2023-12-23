@@ -62,7 +62,7 @@ public class Plugin : BaseUnityPlugin {
             List<string> supplyList = new List<string>();
 
             mls.LogInfo("Ship is landing!");
-            if (supplyOnCompany.Value && StartOfRound.Instance.currentLevelID == 3 && freeSupplyClaimed == false) {
+            if ((supplyOnCompany.Value && StartOfRound.Instance.currentLevelID == 3 && freeSupplyClaimed == false) || !supplyOnCompany.Value) {
                 supplyList.AddRange(supplyEquipment.Value.Split(','));
                 if (freeWeaponChance.Value > 0 && Random.Range(0, 100) < freeWeaponChance.Value) {
                     supplyList.AddRange(supplyWeapons.Value.Split(','));
@@ -83,33 +83,12 @@ public class Plugin : BaseUnityPlugin {
                     HUDManager.Instance.AddTextToChatOnServer($"<color=white>The Company deposited {freeCredits.Value} to your bank account.</color>");
                 }
                 Traverse.Create(dropship).Method("LandShipOnServer").GetValue();
-                freeSupplyClaimed = true;
-
+                if (supplyOnCompany.Value) {
+                    freeSupplyClaimed = true;
+                }
             } else if (supplyOnCompany.Value && StartOfRound.Instance.currentLevelID != 3) {
                 mls.LogInfo("No free supplies on moons.");
                 freeSupplyClaimed = false;
-            } else if (!supplyOnCompany.Value) {
-                supplyList.AddRange(supplyEquipment.Value.Split(','));
-                if (freeWeaponChance.Value > 0 && Random.Range(0, 100) < freeWeaponChance.Value) {
-                    supplyList.AddRange(supplyWeapons.Value.Split(','));
-                    HUDManager.Instance.AddTextToChatOnServer("<color=white>The Company thanks your service with lights and firepower.</color>");
-                } else {
-                    HUDManager.Instance.AddTextToChatOnServer("<color=white>The Company thanks your service with equipment.</color>");
-                }
-                for (int i = 0; i < StartOfRound.Instance.livingPlayers; i++) {
-                    supplyIDList.Clear();
-                    foreach (string supply in supplyList) {
-                        supplyIDList.Add(int.Parse(supply.Trim()));
-                    }
-                    terminal.BuyItemsServerRpc(supplyIDList.ToArray(), terminal.groupCredits, 0);
-                }
-                if (freeCredits.Value > 0) {
-                    terminal.groupCredits += freeCredits.Value;
-                    terminal.SyncGroupCreditsServerRpc(terminal.groupCredits, terminal.numberOfItemsInDropship);
-                    HUDManager.Instance.AddTextToChatOnServer($"<color=white>The Company deposited {freeCredits.Value} to your bank account.</color>");
-                }
-                Traverse.Create(dropship).Method("LandShipOnServer").GetValue();
-                freeSupplyClaimed = true;
             }
         }
     }
