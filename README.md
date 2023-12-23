@@ -17,16 +17,17 @@ Weapons: (10% chance)
 
 Credits: 60
 ```
+The ship needs to travel to the Company at the start of a run to collect the supplies if `supplyOnCompany` is set to `true`.
 
 ## Configuration
-`isCompanyEthical`: `bool` Is the company ethical? This toggles the mod.
+`isCompanyEthical`: (Default: `true`) Is the company ethical? This toggles the mod.
 
-`supplyOnCompany`: `bool` Should free goods only be given on the Company moon.
+`supplyOnCompany`: (Default: `true`) Should free goods only be given on the Company moon.
 
-`freeWeaponChance`: Percent chance for the Company to give out arms. Set to 0 to disable.
+`freeWeaponChance`: (Default: `10`) Percent chance for the Company to give out arms. Set to 0 to disable.
 
-`freeCredits`: Free credits given when arriving at the Company. Set to 0 to disable.
+`freeCredits`: (Default: `60`) Free credits given when arriving at the Company. Set to 0 to disable.
 
-`supplyEquipment`: IDs of equipment supplied by the Company.
+`supplyEquipment`: (Default: `0, 1`) IDs of equipment supplied by the Company.
 
-`supplyWeapons`: IDs of weapons supplied by the Company.
+`supplyWeapons`: (Default: `2`) IDs of weapons supplied by the Company.
