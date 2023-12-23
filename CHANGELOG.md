@@ -1,2 +1,6 @@
 ## v1.0.0
-Initial release
+* Initial release
+
+## v1.0.1
+* Fixed duplicated supply items
+* Minor code refactor

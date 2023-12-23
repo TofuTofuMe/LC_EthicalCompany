@@ -12,7 +12,7 @@ namespace EthicalCompany;
 public class Plugin : BaseUnityPlugin {
     public const string ModGUID = "TofuTofuMe.EthicalCompany";
     public const string ModName = "EthicalCompany";
-    public const string ModVersion = "1.0.0";
+    public const string ModVersion = "1.0.1";
     private readonly Harmony harmony = new Harmony(ModGUID);
     public static ManualLogSource mls;
     public static ConfigEntry<bool> isCompanyEthical;

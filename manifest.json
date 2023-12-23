@@ -1,6 +1,6 @@
 {
     "name": "EthicalCompany",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/TofuTofuMe/LC_EthicalCompany",
     "description": "Making the Company more ethical. A mod that has the Company deliver free supplies to increase survivability and effectivity.",
     "dependencies": [
